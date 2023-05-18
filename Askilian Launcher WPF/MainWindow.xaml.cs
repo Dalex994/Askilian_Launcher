@@ -52,5 +52,9 @@ namespace Askilian_Launcher_WPF
             }
         }
 
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

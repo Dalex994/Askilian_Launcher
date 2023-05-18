@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Height="600" Width="920"
         WindowStyle="None"
-        ResizeMode="NoResize"
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent"
         AllowsTransparency="True">
 
@@ -16,12 +16,12 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-   
+
 
     <Border Background="#272537"
             CornerRadius="30">
 
-        
+
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -43,8 +43,8 @@
                     BorderThickness="0" 
                     Margin="0,18,0,17" 
                     HorizontalAlignment="Left" 
-                    Width="30" 
-                    Height="30">
+                    Width="23" 
+                    Height="23">
 
                 <Button.Background>
                     <ImageBrush  ImageSource="Images/icons8-cancel-40 (1).png"/>
@@ -53,34 +53,52 @@
             </Button>
 
             <Button x:Name="btnMinimize"
-                    Grid.Column="2"
+                    Grid.Column="1"
                     BorderThickness="0" 
-                    Margin="0,18,0,17" 
+                    Margin="618,28,0,27" 
                     HorizontalAlignment="Left" 
-                    Width="30" 
-                    Height="30">
+                    Width="15" 
+                    Height="20">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="Images/icons8-cancel-40 (1).png"/>
+                    <ImageBrush  ImageSource="/Images/icons8-subtract-40.png"/>
+
                 </Button.Background>
 
             </Button>
 
             <Button x:Name="btnMaximize"
-                    Grid.Column="2"
+                    Grid.Column="1"
                     BorderThickness="0" 
-                    Margin="0,18,0,17" 
+                    Margin="658,30,0,31" 
                     HorizontalAlignment="Left" 
-                    Width="30" 
-                    Height="30">
+                    Width="15" 
+                    Height="15">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="Images/icons8-cancel-40 (1).png"/>
+                    <ImageBrush  ImageSource="/Images/icons8-maximize-button-40.png" />
+
+                </Button.Background>
+
+            </Button>
+            
+            <Button x:Name="btnMove"
+                    Grid.Column="1"
+                    BorderThickness="0" 
+                    Margin="638,30,0,31" 
+                    HorizontalAlignment="Left" 
+                    Width="15" 
+                    Height="15"
+                    PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
+
+                <Button.Background>
+                    <ImageBrush  ImageSource="/Images/icons8-move-30.png" />
+ 
                 </Button.Background>
 
             </Button>
 
-            
+
 
 
             <TextBlock Text="Elysian"

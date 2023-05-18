@@ -150,5 +150,12 @@
   <ItemGroup>
     <Resource Include="Images\icons8-cancel-40 %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-maximize-button-40.png" />
+    <Resource Include="Images\icons8-subtract-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-move-30.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
