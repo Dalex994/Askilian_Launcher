@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/icons8-move-30.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo_askilian_256px.ico")]
 
 

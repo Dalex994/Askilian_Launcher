@@ -13,9 +13,11 @@ namespace Askilian_Launcher_WPF.MVVM.ViewModel
 
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DiscoveryViewCommand { get; set; }
+        public RelayCommand SoonViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public DiscoveryViewModel DiscoveryVM { get; set; }
+        public SoonViewModel SoonVM { get; set; }
 
         private object _currentView;
 
@@ -33,6 +35,7 @@ namespace Askilian_Launcher_WPF.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             DiscoveryVM = new DiscoveryViewModel();
+            SoonVM = new SoonViewModel();
 
             CurrentView = HomeVM;
 
@@ -46,6 +49,11 @@ namespace Askilian_Launcher_WPF.MVVM.ViewModel
             {
                 CurrentView = DiscoveryVM;
 
+            });
+
+            SoonViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = SoonVM;
             });
         }
     }

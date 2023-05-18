@@ -17,7 +17,6 @@
     </Window.DataContext>
 
 
-
     <Border Background="#272537"
             CornerRadius="30">
 
@@ -44,7 +43,8 @@
                     Margin="0,18,0,17" 
                     HorizontalAlignment="Left" 
                     Width="23" 
-                    Height="23">
+                    Height="23"
+                    Click="btnClose_Click">
 
                 <Button.Background>
                     <ImageBrush  ImageSource="Images/icons8-cancel-40 (1).png"/>
@@ -55,10 +55,11 @@
             <Button x:Name="btnMinimize"
                     Grid.Column="1"
                     BorderThickness="0" 
-                    Margin="618,28,0,27" 
+                    Margin="638,28,0,27" 
                     HorizontalAlignment="Left" 
                     Width="15" 
-                    Height="20">
+                    Height="20"
+                    Click="btnMinimize_Click">
 
                 <Button.Background>
                     <ImageBrush  ImageSource="/Images/icons8-subtract-40.png"/>
@@ -67,25 +68,10 @@
 
             </Button>
 
-            <Button x:Name="btnMaximize"
-                    Grid.Column="1"
-                    BorderThickness="0" 
-                    Margin="658,30,0,31" 
-                    HorizontalAlignment="Left" 
-                    Width="15" 
-                    Height="15">
-
-                <Button.Background>
-                    <ImageBrush  ImageSource="/Images/icons8-maximize-button-40.png" />
-
-                </Button.Background>
-
-            </Button>
-            
             <Button x:Name="btnMove"
                     Grid.Column="1"
                     BorderThickness="0" 
-                    Margin="638,30,0,31" 
+                    Margin="658,30,0,30" 
                     HorizontalAlignment="Left" 
                     Width="15" 
                     Height="15"
@@ -93,51 +79,52 @@
 
                 <Button.Background>
                     <ImageBrush  ImageSource="/Images/icons8-move-30.png" />
- 
+
                 </Button.Background>
 
             </Button>
 
+            <Image Source="/Images/logo_askilian_256px.ico" 
+                   Width="60"
+                   Height="60"
+                   Margin="52,10,68,5"/>
 
-
-
-            <TextBlock Text="Elysian"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Foreground="White"
-                   FontSize="22" Height="29" Width="66"/>
 
             <StackPanel Grid.Row="1">
 
-                <RadioButton Content="Home"
+                <RadioButton Content="Accueil"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
+                             Cursor="Hand"
                              Command="{Binding HomeViewCommand}"/>
+                
+                <RadioButton Background="Transparent"
+                             BorderThickness="0"
+                             Height="50"
+                             Width="50"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Cursor="Hand"
+                             Command="{Binding DiscoveryViewCommand}">
+                    <WrapPanel>
+                        <Image Source="/Images/logo_mirumorbis_256px.ico" />
 
-                <RadioButton Content="Discovery"
+                    </WrapPanel>
+                </RadioButton>
+
+                <RadioButton Content="Bientôt..."
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding DiscoveryViewCommand}"/>
-
-                <RadioButton Content="Featured"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             IsChecked="True"
+                             Cursor="Hand"
+                             Command="{Binding SoonViewCommand}"/>
 
             </StackPanel>
-
-            <TextBox Width="250"
-                     VerticalContentAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="5,18,0,17"
-                     Grid.Column="1"
-                     Style="{StaticResource ModernTexbox}"/>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
