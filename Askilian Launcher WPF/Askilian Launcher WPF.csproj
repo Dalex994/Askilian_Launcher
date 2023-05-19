@@ -103,13 +103,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Theme\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\FontTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Theme\MenuButtonTheme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -156,42 +156,27 @@
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\miniature_bestial-removebg-preview.png" />
+    <Resource Include="Images\askilian_256px.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\logo_askilian_256px.ico" />
+    <Resource Include="Images\cancel-40.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icons8-cancel-40 %281%29.png" />
+    <Resource Include="Images\maximize-40.png" />
+    <Resource Include="Images\subtract-40.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icons8-maximize-button-40.png" />
-    <Resource Include="Images\icons8-subtract-40.png" />
+    <Resource Include="Images\move-30.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icons8-move-30.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\background.png" />
-    <Resource Include="Images\Background_Mirum_Orbis_-_Les_Terres_dOtium.png" />
-    <Resource Include="Images\Background_Reve_Du_Desert.png" />
-    <Resource Include="Images\Banniere_youtube.jpg" />
-    <Resource Include="Images\DECOUVRONS...Le_Systeme_des_Donjons.png" />
-    <Resource Include="Images\fond_decran_Smartphone_Ask.png" />
-    <Resource Include="Images\fond_decran_Smartphone_Mirum.png" />
-    <Resource Include="Images\Illustration_Bataille_des_Dieux.png" />
-    <Resource Include="Images\image2.png" />
-    <Resource Include="Images\image3.png" />
-    <Resource Include="Images\IMG_1207.png" />
-    <Resource Include="Images\logo_mirumorbis_256px.ico" />
-    <Resource Include="Images\maintenance.png" />
-    <Resource Include="Images\Miniature_-_Promotion_de_lAlpha_3.png" />
-    <Resource Include="Images\miniature_bestial.png" />
-    <Resource Include="Images\PRESENTATION_BRETTEUR_SPE_PROTECTION.png" />
-    <Resource Include="Images\Recherche_de_Mise_a_Jour.png" />
+    <Resource Include="Images\mirumorbis_256px.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo_askilian_256px.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\coming-soon-40.png" />
+    <Resource Include="Images\home-40.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

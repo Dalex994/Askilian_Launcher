@@ -20,6 +20,7 @@
             CornerRadius="20">
 
         <Grid>
+            <!--#region Grid Properties-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="134"/>
                 <ColumnDefinition/>
@@ -30,33 +31,44 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30"
+                                  ShadowDepth="2"
+                                  Direction="-90"
+                                  Color="Gray"/>
+            </Grid.Effect>
+          
+            <!--#endregion-->
+            
+            <!--#region Header + Top Buttons-->
             <Border Background="#444354" 
                     Grid.ColumnSpan="2" 
                     PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
                     CornerRadius="20">
-                
-                <Image Source="/Images/logo_askilian_256px.ico"
+
+                <Image Source="/Images/askilian_256px.ico"
                        Margin="394,2,394,1"
                        Height="72"
                        Width="72"/>
             </Border>
 
             <Button x:Name="btnClose"
+                    Style="{DynamicResource CloseBtn_Style}" 
                     Grid.Column="1"
                     BorderThickness="0" 
                     Margin="627,28,0,23"  
                     Width="24"
-                    Click="btnClose_Click"
-                    >
+                    Click="btnClose_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="Images/icons8-cancel-40 (1).png"/>
+                    <ImageBrush  ImageSource="Images/cancel-40.png"/>
                 </Button.Background>
 
             </Button>
 
-            
+
             <Button x:Name="btnMaximize"
+                    Style="{DynamicResource MaxBtn_Style}" 
                     Grid.Column="1"
                     BorderThickness="0" 
                     Margin="638,30,64,25"
@@ -65,13 +77,14 @@
                     Click="btnMaximize_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Images/icons8-maximize-button-40.png"/>
+                    <ImageBrush  ImageSource="/Images/maximize-40.png"/>
 
                 </Button.Background>
 
             </Button>
 
             <Button x:Name="btnMinimize"
+                    Style="{DynamicResource MinBtn_Style}" 
                     Grid.Column="1"
                     BorderThickness="0" 
                     Margin="609,30,93,25"
@@ -79,49 +92,61 @@
                     Click="btnMinimize_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Images/icons8-subtract-40.png"/>
+                    <ImageBrush  ImageSource="/Images/subtract-40.png"/>
 
                 </Button.Background>
 
             </Button>
+            <!--#endregion-->
 
-
+            <!--#region Side Panel [Buttons]-->
             <StackPanel Grid.Row="1">
 
-                <RadioButton Content="Accueil"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"
-                             Cursor="Hand"
-                             Command="{Binding HomeViewCommand}"/>
+                <Button x:Name="Home"
+                        Style="{DynamicResource HomeBtn_Style}" 
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,180,0,20">
+                    <Image Source="Images/home-40.png"
+                           Stretch="Fill"
+                           Width="40"
+                           Height="40">
+                        
+                    </Image>
+                </Button>
 
-                <RadioButton Background="Transparent"
-                             BorderThickness="0"
-                             Height="50"
-                             Width="50"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"
-                             Cursor="Hand"
-                             Command="{Binding DiscoveryViewCommand}">
-                    <WrapPanel>
-                        <Image Source="/Images/logo_mirumorbis_256px.ico" />
+                <Button x:Name="Content"
+                        Style="{DynamicResource ContentBtn_Style}" 
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,0,0,10">
+                    <Image Source="Images/mirumorbis_256px.ico"
+                           Stretch="UniformToFill"
+                           Width="60"
+                           Height="60">
+                        
+                    </Image>
+                </Button>
 
-                    </WrapPanel>
-                </RadioButton>
-
-                <RadioButton Content="Bientôt..."
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"
-                             Cursor="Hand"
-                             Command="{Binding SoonViewCommand}"/>
+                <Button x:Name="Projects"
+                        Style="{DynamicResource ProjectBtn_Style}" 
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,10,0,0">
+                    <Image Source="Images/coming-soon-40.png"
+                           Stretch="Fill"
+                           Width="40"
+                           Height="40">
+                        
+                    </Image>
+                </Button>
 
             </StackPanel>
-
+            <!--#region -->
+            
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10,10,10,10"
