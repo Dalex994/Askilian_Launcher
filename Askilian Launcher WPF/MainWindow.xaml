@@ -16,7 +16,6 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-
     <Border Background="#272537"
             CornerRadius="20">
 
@@ -35,8 +34,9 @@
                     Grid.ColumnSpan="2" 
                     PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
                     CornerRadius="20">
+                
                 <Image Source="/Images/logo_askilian_256px.ico"
-                       Margin="400,2,385,1"
+                       Margin="394,2,394,1"
                        Height="72"
                        Width="72"/>
             </Border>
@@ -46,7 +46,8 @@
                     BorderThickness="0" 
                     Margin="627,28,0,23"  
                     Width="24"
-                    Click="btnClose_Click">
+                    Click="btnClose_Click"
+                    >
 
                 <Button.Background>
                     <ImageBrush  ImageSource="Images/icons8-cancel-40 (1).png"/>
@@ -54,6 +55,7 @@
 
             </Button>
 
+            
             <Button x:Name="btnMaximize"
                     Grid.Column="1"
                     BorderThickness="0" 

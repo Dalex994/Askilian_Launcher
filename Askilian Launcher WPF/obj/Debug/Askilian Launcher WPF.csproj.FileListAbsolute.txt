@@ -47,4 +47,4 @@ D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Laun
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian_Launcher.Properties.Resources.resources
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.exe
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.pdb
-D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\IconButtonTheme.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\FontTheme.baml
