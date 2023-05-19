@@ -24,7 +24,6 @@ D:\Programmation\Askilian Launcher WPF\obj\Debug\MVVM\View\DiscoveryView.g.cs
 D:\Programmation\Askilian Launcher WPF\obj\Debug\MVVM\View\DiscoveryView.baml
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher WPF.csproj.AssemblyReference.cache
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher WPF.csproj.SuggestedBindingRedirects.cache
-D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\MenuButtonTheme.baml
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MainWindow.g.cs
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\DiscoveryView.g.cs
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\HomeView.g.cs
@@ -48,3 +47,4 @@ D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian_Laun
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.exe
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.pdb
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\FontTheme.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\ButtonStyle.baml
