@@ -100,6 +100,7 @@
             <!--#endregion-->
 
             <!--#region Side Panel [Buttons]-->
+            
             <StackPanel Grid.Row="1">
 
                 <Button x:Name="Home"
@@ -145,16 +146,29 @@
                 </Button>
 
             </StackPanel>
-            <!--#region -->
+            
+            <!--#endregion-->
             
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10,10,10,10"
                             Content="{Binding CurrentView}"/>
 
+            <!--Add the PopUserControl-->
+            <Popup x:Name="popup_uc"
+               AllowsTransparency="True"
+               HorizontalOffset="10"
+               VerticalOffset="10">
+
+                <Grid>
+                    <local:PopUserControl x:Name="Header" 
+                                      Foreground="#E0FFFF"/>
+                </Grid>
+
+            </Popup>
+
+
         </Grid>
-
-
 
     </Border>
 

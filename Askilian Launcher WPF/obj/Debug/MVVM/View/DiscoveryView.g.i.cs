@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Askilian_Launcher.MVVM.Model;
 using Askilian_Launcher_WPF.MVVM.View;
 using System;
 using System.Diagnostics;

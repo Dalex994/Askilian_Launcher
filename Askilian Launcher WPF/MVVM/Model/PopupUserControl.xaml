@@ -58,6 +58,9 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
+                <Trigger Property="FrameworkElement.Visibility" Value="Collapsed">
+                    <Setter Property="FrameworkElement.Opacity" Value="0"/>
+                </Trigger>
             </Style.Triggers>
         </Style>
     </UserControl.Style>

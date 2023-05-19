@@ -48,3 +48,4 @@ D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Laun
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.pdb
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\FontTheme.baml
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\ButtonStyle.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\Model\PopupUserControl.g.cs
