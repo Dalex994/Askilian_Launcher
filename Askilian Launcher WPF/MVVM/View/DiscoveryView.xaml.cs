@@ -24,5 +24,6 @@ namespace Askilian_Launcher_WPF.MVVM.View
         {
             InitializeComponent();
         }
+
     }
 }
