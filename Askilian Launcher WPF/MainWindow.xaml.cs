@@ -26,6 +26,7 @@ namespace Askilian_Launcher_WPF
             InitializeComponent();
         }
 
+        // Top Buttons Functions
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -51,11 +52,15 @@ namespace Askilian_Launcher_WPF
             WindowState = WindowState.Minimized;
         }
 
+        // Dragable Function for the Header
         private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
 
+        // Side Panels Buttons
+
+        // First Button
         private void Home_MouseEnter(object sender, MouseEventArgs e)
         {
             popup_uc.PlacementTarget = Home;
@@ -70,6 +75,7 @@ namespace Askilian_Launcher_WPF
             popup_uc.IsOpen = false;
         }
 
+        // Second Button
         private void Content_MouseEnter(object sender, MouseEventArgs e)
         {
             popup_uc.PlacementTarget = Content;
@@ -84,6 +90,7 @@ namespace Askilian_Launcher_WPF
             popup_uc.IsOpen = false;
         }
 
+        // Third Buttons
         private void Project_MouseEnter(Object sender, MouseEventArgs e)
         {
             popup_uc.PlacementTarget = Projects;

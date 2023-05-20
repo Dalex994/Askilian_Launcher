@@ -55,13 +55,16 @@
                         BorderBrush="Transparent"
                         Margin="0,30,0,20"
                         MouseEnter="Home_MouseEnter"
-                        MouseLeave="Home_MouseLeave">
+                        MouseLeave="Home_MouseLeave"
+                        Command="{Binding HomeViewCommand}">
+                    
                     <Image Source="Images/home-40.png"
                            Stretch="Fill"
                            Width="35"
                            Height="35"/>
                 </Button>
 
+                
                 <Button x:Name="Content"
                         Style="{DynamicResource ContentBtn_Style}" 
                         Height="65"
@@ -69,13 +72,16 @@
                         BorderBrush="Transparent"
                         Margin="0,0,0,10"
                         MouseEnter="Content_MouseEnter"
-                        MouseLeave="Content_MouseLeave">
+                        MouseLeave="Content_MouseLeave"
+                        Command="{Binding DiscoveryViewCommand}">
+                    
                     <Image Source="Images/mirumorbis_256px.ico"
                            Stretch="UniformToFill"
                            Width="60"
                            Height="60"/>
                 </Button>
 
+                
                 <Button x:Name="Projects"
                         Style="{DynamicResource ProjectBtn_Style}" 
                         Height="65"
@@ -83,7 +89,9 @@
                         BorderBrush="Transparent"
                         Margin="0,10,0,0"
                         MouseEnter="Project_MouseEnter"
-                        MouseLeave="Project_MouseLeave">
+                        MouseLeave="Project_MouseLeave"
+                        Command="{Binding SoonViewCommand}">
+                    
                     <Image Source="Images/coming-soon-40.png"
                            Stretch="Fill"
                            Width="35"
@@ -92,6 +100,7 @@
 
             </StackPanel>
             <!--#endregion-->
+            
 
             <!--#region Header + Top Buttons-->
             <Border Background="#444354" 
@@ -138,8 +147,9 @@
                     BorderThickness="0" 
                     Margin="714,26,40,26"
                     Width="23"
-                    Height="23"
-                    Click="btnMaximize_Click">
+                    Height="23">
+                <!--Click="btnMaximize_Click" (plus tard pour responsive)-->
+                
 
                 <Button.Background>
                     <ImageBrush  ImageSource="/Images/maximize-40.png"/>
@@ -166,6 +176,8 @@
 
             <!--#endregion-->
 
+            
+            <!--#region Content Control + Popup-->
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10,10,10,10"
@@ -182,6 +194,7 @@
                                          Foreground="#E0FFFF"/>
                 </Grid>
             </Popup>
+            <!--#endregion-->
 
 
         </Grid>

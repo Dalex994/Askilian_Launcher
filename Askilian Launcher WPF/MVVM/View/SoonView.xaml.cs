@@ -18,7 +18,7 @@ namespace Askilian_Launcher_WPF.MVVM.View
     /// <summary>
     /// Logique d'interaction pour SoonView.xaml
     /// </summary>
-    public partial class SoonView : Page
+    public partial class SoonView : UserControl
     {
         public SoonView()
         {

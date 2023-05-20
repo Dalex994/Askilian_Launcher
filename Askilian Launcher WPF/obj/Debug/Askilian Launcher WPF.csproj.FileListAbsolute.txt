@@ -38,10 +38,8 @@ D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Laun
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\Debug\Askilian Launcher.exe.config
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\Debug\Askilian Launcher.exe
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\Debug\Askilian Launcher.pdb
-D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\SoonView.g.cs
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher_MarkupCompile.cache
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher_MarkupCompile.lref
-D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\SoonView.baml
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.g.resources
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian_Launcher.Properties.Resources.resources
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Askilian Launcher.exe
@@ -50,3 +48,5 @@ D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\FontThe
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\Theme\ButtonStyle.baml
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\UserControls\PopupUserControl.g.cs
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\UserControls\PopupUserControl.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\SoonView.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\SoonView.baml
