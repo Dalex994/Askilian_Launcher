@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Askilian_Launcher.MVVM.Model
+namespace Askilian_Launcher
 {
     /// <summary>
     /// Logique d'interaction pour PopupUserControl.xaml
