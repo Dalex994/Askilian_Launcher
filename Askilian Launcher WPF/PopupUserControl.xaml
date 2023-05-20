@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Askilian_Launcher"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="300">
+            
     <Grid>
         <Path x:Name="Container"
               HorizontalAlignment="Center"

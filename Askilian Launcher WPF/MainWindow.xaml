@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Askilian_Launcher.UserControls"
         xmlns:viewModel="clr-namespace:Askilian_Launcher_WPF.MVVM.ViewModel" 
+        xmlns:View="clr-namespace:Askilian_Launcher_WPF.MVVM.View"
         mc:Ignorable="d"
         Height="600" Width="860"
         WindowStyle="None"
@@ -37,9 +37,9 @@
                                   Direction="-90"
                                   Color="Gray"/>
             </Grid.Effect>
-          
+
             <!--#endregion-->
-            
+
             <!--#region Header + Top Buttons-->
             <Border Background="#444354" 
                     Grid.ColumnSpan="2" 
@@ -51,6 +51,15 @@
                        Height="72"
                        Width="72"/>
             </Border>
+
+            <TextBlock Text="Askilian&#x0a;Launcher "
+                       Style="{StaticResource FontRotunda}"
+                       FontSize="18"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="#E0FFFF" 
+                       Grid.ColumnSpan="2" 
+                       Margin="28,16,0,0"/>
 
             <Button x:Name="btnClose"
                     Style="{DynamicResource CloseBtn_Style}" 
@@ -100,7 +109,7 @@
             <!--#endregion-->
 
             <!--#region Side Panel [Buttons]-->
-            
+
             <StackPanel Grid.Row="1">
 
                 <Button x:Name="Home"
@@ -113,7 +122,7 @@
                            Stretch="Fill"
                            Width="40"
                            Height="40">
-                        
+
                     </Image>
                 </Button>
 
@@ -127,7 +136,7 @@
                            Stretch="UniformToFill"
                            Width="60"
                            Height="60">
-                        
+
                     </Image>
                 </Button>
 
@@ -141,14 +150,14 @@
                            Stretch="Fill"
                            Width="40"
                            Height="40">
-                        
+
                     </Image>
                 </Button>
 
             </StackPanel>
-            
+
             <!--#endregion-->
-            
+
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10,10,10,10"
@@ -161,8 +170,6 @@
                VerticalOffset="10">
 
                 <Grid>
-                    
-                    
                 </Grid>
 
             </Popup>
