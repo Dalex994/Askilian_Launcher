@@ -161,8 +161,7 @@
                VerticalOffset="10">
 
                 <Grid>
-                    <local:PopUserControl x:Name="Header" 
-                                      Foreground="#E0FFFF"/>
+                    
                 </Grid>
 
             </Popup>
