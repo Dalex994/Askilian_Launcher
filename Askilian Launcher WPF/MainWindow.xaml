@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:Askilian_Launcher_WPF.MVVM.ViewModel" 
         xmlns:View="clr-namespace:Askilian_Launcher_WPF.MVVM.View"
+        xmlns:UC="clr-namespace:Askilian_Launcher.UserControls"
         mc:Ignorable="d"
         Height="600" Width="860"
         WindowStyle="None"
@@ -163,15 +164,16 @@
                             Margin="10,10,10,10"
                             Content="{Binding CurrentView}"/>
 
-            <!--Add the PopUserControl-->
+            <!--add the popup user control-->
             <Popup x:Name="popup_uc"
-               AllowsTransparency="True"
-               HorizontalOffset="10"
-               VerticalOffset="10">
+                   AllowsTransparency="True"
+                   HorizontalOffset="10"
+                   VerticalOffset="10">
 
                 <Grid>
+                    <UC:PopupUserControl x:Name="Header" 
+                                         Foreground="#E0FFFF"/>
                 </Grid>
-
             </Popup>
 
 

@@ -1,13 +1,13 @@
-﻿<UserControl x:Class="Askilian_Launcher.PopupUserControl"
+﻿<UserControl x:Class="Askilian_Launcher.UserControls.PopupUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Askilian_Launcher"
+             xmlns:local="clr-namespace:Askilian_Launcher.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="300">
-            
     <Grid>
+        <!--draw the popup user control-->
         <Path x:Name="Container"
               HorizontalAlignment="Center"
               VerticalAlignment="Center"
@@ -17,15 +17,15 @@
               
                     L198,-32
                     C208,-31 208,-25 208,-15
-                    
+              
                     L208,0 208,20
                     C208,30 205,33 195,33
-                 
+              
                     L20,33
                     C15,33 10,33 10,25
-                    
+              
                     L10,10
-                    z"
+                    z"            
               Fill="#3A6180"
               Height="65"
               Width="195"
@@ -35,25 +35,24 @@
 
         </Path>
 
-        <!--Reusable Text-->
+        <!--reusable text-->
         <TextBlock x:Name="PopupText"
                    FontSize="20"
                    Panel.ZIndex="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-
+                   VerticalAlignment="Center">
+        </TextBlock>
+        
     </Grid>
 
-    <!--Animate the UserControl-->
+    <!--animate the user control-->
     <UserControl.Style>
         <Style>
             <Style.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                             Duration="00:00:02" 
-                                             From="0" To="1"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:02" From="0" To="1"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -63,5 +62,5 @@
             </Style.Triggers>
         </Style>
     </UserControl.Style>
- 
+
 </UserControl>

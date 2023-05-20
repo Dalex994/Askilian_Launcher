@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\App.xaml
-7280624194
+71933183649
 
-15-827053188
+16-1281951525
 13-946294123
-MainWindow.xaml;MVVM\View\DiscoveryView.xaml;MVVM\View\HomeView.xaml;MVVM\View\SoonView.xaml;PopupUserControl.xaml;Theme\ButtonStyle.xaml;Theme\FontTheme.xaml;
+MainWindow.xaml;MVVM\View\DiscoveryView.xaml;MVVM\View\HomeView.xaml;MVVM\View\SoonView.xaml;Theme\ButtonStyle.xaml;Theme\FontTheme.xaml;UserControls\PopupUserControl.xaml;
 
-False
+True
 
