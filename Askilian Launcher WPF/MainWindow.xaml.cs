@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Controls.Primitives;
 
 namespace Askilian_Launcher_WPF
 {
@@ -54,5 +55,50 @@ namespace Askilian_Launcher_WPF
         {
             this.DragMove();
         }
+
+        private void Home_MouseEnter(object sender, MouseEventArgs e)
+        {
+            popup_uc.PlacementTarget = Home;
+            popup_uc.Placement = PlacementMode.Right;
+            popup_uc.IsOpen = true;
+            Header.PopupText.Text = "Acceuil";
+        }
+
+        private void Home_MouseLeave(object sender, MouseEventArgs e)
+        {
+            popup_uc.Visibility = Visibility.Collapsed;
+            popup_uc.IsOpen = false;
+        }
+
+        private void Content_MouseEnter(object sender, MouseEventArgs e)
+        {
+            popup_uc.PlacementTarget = Content;
+            popup_uc.Placement = PlacementMode.Right;
+            popup_uc.IsOpen = true;
+            Header.PopupText.Text = "Mirum Orbis";
+        }
+
+        private void Content_MouseLeave(object sender, MouseEventArgs e)
+        {
+            popup_uc.Visibility = Visibility.Collapsed;
+            popup_uc.IsOpen = false;
+        }
+
+        private void Project_MouseEnter(Object sender, MouseEventArgs e)
+        {
+            popup_uc.PlacementTarget = Projects;
+            popup_uc.Placement = PlacementMode.Right;
+            popup_uc.IsOpen = true;
+            Header.PopupText.Text = "A Venir...";
+        }
+
+        private void Project_MouseLeave(Object sender, MouseEventArgs e)
+        {
+            popup_uc.Visibility = Visibility.Collapsed;
+            popup_uc.IsOpen = false;
+        }
+
+       
+
     }
 }

@@ -27,8 +27,8 @@
                     L10,10
                     z"            
               Fill="#3A6180"
-              Height="65"
-              Width="195"
+              Height="50"
+              Width="170"
               Stroke="#3A6180"
               Stretch="Fill"
               Margin="10">
@@ -37,10 +37,11 @@
 
         <!--reusable text-->
         <TextBlock x:Name="PopupText"
-                   FontSize="20"
+                   FontSize="16"
                    Panel.ZIndex="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
+                   VerticalAlignment="Center"
+                   Style="{StaticResource FontRotunda}">
         </TextBlock>
         
     </Grid>
@@ -52,7 +53,9 @@
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:02" From="0" To="1"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                             Duration="00:00:00.55" 
+                                             From="0" To="1"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
