@@ -58,7 +58,7 @@
                         MouseLeave="Home_MouseLeave"
                         Command="{Binding HomeViewCommand}">
                     
-                    <Image Source="Images/home-40.png"
+                    <Image Source="/Assets/home-40.png"
                            Stretch="Fill"
                            Width="35"
                            Height="35"/>
@@ -75,7 +75,7 @@
                         MouseLeave="Content_MouseLeave"
                         Command="{Binding DiscoveryViewCommand}">
                     
-                    <Image Source="Images/mirumorbis_256px.ico"
+                    <Image Source="/Assets/mirumorbis_256px.ico"
                            Stretch="UniformToFill"
                            Width="60"
                            Height="60"/>
@@ -92,7 +92,7 @@
                         MouseLeave="Project_MouseLeave"
                         Command="{Binding SoonViewCommand}">
                     
-                    <Image Source="Images/coming-soon-40.png"
+                    <Image Source="/Assets/coming-soon-40.png"
                            Stretch="Fill"
                            Width="35"
                            Height="35"/>
@@ -108,7 +108,7 @@
                     PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" 
                     CornerRadius="20">
 
-                <Image Source="/Images/askilian_256px.ico"
+                <Image Source="/Assets/askilian_256px.ico"
                        Margin="394,2,394,1"
                        Height="72"
                        Width="72"/>
@@ -135,40 +135,23 @@
                     Click="btnClose_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="Images/cancel-40.png"/>
+                    <ImageBrush  ImageSource="/Assets/cancel-40.png"/>
                 </Button.Background>
 
             </Button>
 
-
-            <Button x:Name="btnMaximize"
-                    Style="{DynamicResource MaxBtn_Style}" 
-                    Grid.Column="1"
-                    BorderThickness="0" 
-                    Margin="714,26,40,26"
-                    Width="23"
-                    Height="23">
-                <!--Click="btnMaximize_Click" (plus tard pour responsive)-->
-                
-
-                <Button.Background>
-                    <ImageBrush  ImageSource="/Images/maximize-40.png"/>
-
-                </Button.Background>
-
-            </Button>
 
             <Button x:Name="btnMinimize"
                     Style="{DynamicResource MinBtn_Style}" 
                     Grid.Column="1"
                     BorderThickness="0" 
-                    Margin="686,26,68,26"
+                    Margin="714,26,40,26"
                     Width="23"
                     Height="23"
                     Click="btnMinimize_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Images/subtract-40.png"/>
+                    <ImageBrush  ImageSource="/Assets/subtract-40.png"/>
 
                 </Button.Background>
 

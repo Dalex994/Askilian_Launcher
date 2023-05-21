@@ -163,27 +163,30 @@
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\askilian_256px.ico" />
+    <Resource Include="Assets\askilian_256px.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cancel-40.png" />
+    <Resource Include="Assets\cancel-40.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\maximize-40.png" />
-    <Resource Include="Images\subtract-40.png" />
+    <Resource Include="Assets\maximize-40.png" />
+    <Resource Include="Assets\subtract-40.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\move-30.png" />
+    <Resource Include="Assets\move-30.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\mirumorbis_256px.ico" />
+    <Resource Include="Assets\mirumorbis_256px.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo_askilian_256px.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\coming-soon-40.png" />
-    <Resource Include="Images\home-40.png" />
+    <Resource Include="Assets\coming-soon-40.png" />
+    <Resource Include="Assets\home-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Miniature_-_Promotion_de_lAlpha_3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

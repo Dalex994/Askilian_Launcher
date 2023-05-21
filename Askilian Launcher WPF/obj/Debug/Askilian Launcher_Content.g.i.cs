@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/icons8-coming-soon-40.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/icons8-home-40.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/miniature_-_promotion_de_lalpha_3.png")]
 
 

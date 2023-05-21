@@ -27,8 +27,8 @@
                     L10,10
                     z"            
               Fill="#3A6180"
-              Height="50"
-              Width="170"
+              Height="45"
+              Width="150"
               Stroke="#3A6180"
               Stretch="Fill"
               Margin="10">
@@ -37,7 +37,7 @@
 
         <!--reusable text-->
         <TextBlock x:Name="PopupText"
-                   FontSize="16"
+                   FontSize="13"
                    Panel.ZIndex="1"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

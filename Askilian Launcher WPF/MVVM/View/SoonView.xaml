@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Askilian_Launcher_WPF.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="460" d:DesignWidth="800"
-             Background="Chartreuse">
+             d:DesignHeight="460" d:DesignWidth="800">
     <Grid>
-            
+        <TextBlock Text="      Bientôt de nouveaux produits &#x0a;tels que des livres, BD et autres jeux !!"
+                   Foreground="#F2F2DB"
+                   FontSize="23"
+                   Style="{StaticResource FontRotunda}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
     </Grid>
 </UserControl>
