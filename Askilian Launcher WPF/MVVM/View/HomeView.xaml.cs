@@ -24,5 +24,30 @@ namespace Askilian_Launcher_WPF.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void Discord_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://discord.gg/4ZxPVeWHym");
+        }
+
+        private void YouTube_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.youtube.com/@askilian2746/featured");
+        }
+
+        private void Twitch_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.twitch.tv/askilianemission");
+        }
+
+        private void TikTok_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.tiktok.com/@askilien.studio");
+        }
+
+        private void Facebook_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://twitter.com/StudioAskilian");
+        }
     }
 }

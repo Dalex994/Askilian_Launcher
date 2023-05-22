@@ -188,5 +188,15 @@
   <ItemGroup>
     <Resource Include="Assets\Miniature_-_Promotion_de_lAlpha_3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\image3.png" />
+    <Resource Include="Assets\twitch-50.png" />
+    <Resource Include="Assets\youtube-50.png" />
+    <Resource Include="Assets\BackEndAL.txt" />
+    <Resource Include="Assets\discord-80.png" />
+    <Resource Include="Assets\facebook-50.png" />
+    <Resource Include="Assets\tiktok-50.png" />
+    <Resource Include="Assets\twitter-50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
