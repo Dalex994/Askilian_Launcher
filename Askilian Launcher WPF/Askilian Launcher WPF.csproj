@@ -198,5 +198,8 @@
     <Resource Include="Assets\tiktok-50.png" />
     <Resource Include="Assets\twitter-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BackEnd2.0.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,78 @@
+using System;
+using System.IO;
+using System.Net;
+using System.IO.Compression;
+
+public class UpdateSystem {
+    private string exePath;
+    private string zipPath;
+    private string serverExeUrl;
+    private string serverZipUrl;
+
+    public UpdateSystem(string exePath, string zipPath, string serverExeUrl, string serverZipUrl) {
+        this.exePath = exePath;
+        this.zipPath = zipPath;
+        this.serverExeUrl = serverExeUrl;
+        this.serverZipUrl = serverZipUrl;
+    }
+
+    public void CheckAndUpdate() {
+        bool exeNeedsUpdate = CheckExe();
+        bool zipNeedsUpdate = CheckZip();
+
+        if (!exeNeedsUpdate && !zipNeedsUpdate) {
+            Console.WriteLine("Local files are up to date.");
+            return;
+        }
+
+        if (exeNeedsUpdate) {
+            DownloadFile(serverExeUrl, exePath);
+            Console.WriteLine($"Updated {exePath} from {serverExeUrl}.");
+        }
+
+        if (zipNeedsUpdate) {
+            DownloadFile(serverZipUrl, zipPath);
+            Console.WriteLine($"Updated {zipPath} from {serverZipUrl}.");
+            ExtractZip(zipPath);
+        }
+    }
+
+    private bool CheckExe() {
+        if (!File.Exists(exePath)) {
+            return true; // exe needs to be installed
+        }
+
+        string localHash = GetFileHash(exePath);
+        string remoteHash = GetRemoteFileHash(serverExeUrl);
+
+        return localHash != remoteHash;
+    }
+
+    private bool CheckZip() {
+        if (!File.Exists(zipPath)) {
+            return true; // zip needs to be installed
+        }
+
+        string localHash = GetFileHash(zipPath);
+        string remoteHash = GetRemoteFileHash(serverZipUrl);
+
+        return localHash != remoteHash;
+    }
+
+    private void DownloadFile(string url, string path) {
+        using (var client = new WebClient()) {
+            client.DownloadFile(url, path);
+        }
+    }
+
+    private string GetFileHash(string path) {
+        using (var stream = File.OpenRead(path)) {
+            var sha = System.Security.Cryptography.SHA256.Create();
+            byte[] hash = sha.ComputeHash(stream);
+            return Convert.ToBase64String(hash);
+        }
+    }
+
+    private string GetRemoteFileHash(string url) {
+        using (var client = new WebClient()) {
+            byte[] data = client.DownloadData($"{

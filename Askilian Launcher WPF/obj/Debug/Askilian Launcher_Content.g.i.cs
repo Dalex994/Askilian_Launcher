@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/intro_sfx.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/backend2.0.txt")]
 
 
