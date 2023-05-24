@@ -15,22 +15,21 @@
                VerticalAlignment="Stretch"
                Opacity="50"/>
 
-        <Button x:Name="PlayMirum"
+        <Button Name="PlayMirum"
                 Style="{DynamicResource RoundedButton}"  
                 Width="144"
                 Height="55"
                 HorizontalAlignment="Center" 
                 Margin="0,229,0,176"
                 Background="#155A06"
-                BorderBrush="Transparent">
+                BorderBrush="Transparent"
+                Content="Entrer"
+                Foreground="Beige"
+                FontFamily="/Fonts/#Berry Rotunda"
+                Click="PlayMirum_Click"
+                Cursor="Hand"
+                FontSize="23"/>
 
-            <TextBlock Text="Entrer"
-                       Foreground="Beige"
-                       Style="{StaticResource FontRotunda}"
-                       FontSize="23"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-        </Button>
 
 
     </Grid>

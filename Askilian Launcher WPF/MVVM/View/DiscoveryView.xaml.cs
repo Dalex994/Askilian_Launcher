@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,30 @@ namespace Askilian_Launcher_WPF.MVVM.View
         public DiscoveryView()
         {
             InitializeComponent();
+            Loaded += UserControl1_Loaded;
         }
 
+        CancellationTokenSource cts = new CancellationTokenSource();
+
+
+        private void UserControl1_Loaded(object sender, RoutedEventArgs e)
+        {
+             async void LongRunningProcess(CancellationToken token)
+            {
+                await Task.Run(() =>
+                {
+                    // Code here ^^
+                    token.ThrowIfCancellationRequested();
+
+                }, token);
+
+                cts.Cancel();
+            }
+        }
+
+        private void PlayMirum_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

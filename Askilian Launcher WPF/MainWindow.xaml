@@ -115,15 +115,15 @@
                        Width="72"/>
             </Border>
 
-            <TextBlock Text="Askilian&#xA;Launcher "
+            <TextBlock Text="Askilian&#xA;Portal "
                        Style="{StaticResource FontRotunda}"
-                       FontSize="15"
+                       FontSize="17"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="#E0FFFF" 
                        Grid.ColumnSpan="2" 
                        Margin="35,0,0,0" 
-                       Height="36" 
+                       Height="45" 
                        Width="93"/>
 
             <Button x:Name="btnClose"

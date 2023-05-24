@@ -6,4 +6,5 @@
         <Setter Property="TextElement.FontFamily"
                     Value="/Fonts/#Berry Rotunda"/>
     </Style>
+
 </ResourceDictionary>
