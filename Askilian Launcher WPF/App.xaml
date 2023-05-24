@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Askilian_Launcher_WPF"
              xmlns:viewModel="clr-namespace:Askilian_Launcher_WPF.MVVM.ViewModel"
              xmlns:view="clr-namespace:Askilian_Launcher_WPF.MVVM.View"
-             StartupUri="MainWindow.xaml">
+             StartupUri="SplashScreen.xaml">
     <Application.Resources>
 
         <ResourceDictionary>

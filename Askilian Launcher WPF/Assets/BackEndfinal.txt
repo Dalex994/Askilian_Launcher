@@ -1,0 +1,34 @@
+Pour le jeu:
+
+1. A l'ouverture du UserControl, check si le folder du jeu existe: _ Si oui, passez à 2.
+                                                                   
+                                                                   _ Si non, afficher une fenêtre d'explorateur et set le directory
+                                                                   [afficher une barre de chargement et set le TextBlock à"Installation"]
+
+
+
+2. Checker si il y a des différences entre les files local et les files remote sur l'URL.
+                             [afficher une barre de chargement et set le TextBlock à "recherche de mise à jour"]
+
+
+2. Si oui, set le TexBlock du Button à "Update", => Si non, mettre le script et le TextBlock à "Play" == lancez le jeu sur Click
+
+
+3. Si "Update", télécharger les files en différences et delete les files non-existants sur le folder Web.(via un .zip éventuellement)
+                             [afficher une barre de chargement et set le TextBlock à "Téléchargement"]
+
+
+4. Checker si tout les files sont au bon endroit => afficher "Play".
+
+
+
+Pour le launcher:
+
+1. Lors du splash screen, Checker si il y a des différences entre les files local et les files remote sur l'URL.
+               _ Si oui, passez à 2.
+               _ Si non, passez à 4.
+
+2. Télécharger les files en différences et delete les files non-existants sur le folder Web.
+               [afficher une barre de chargement et set le TextBlock à "Mise à jour"]
+
+3. Ouvrir MainWindow.xaml (le splash screen s'updatera lors de la prochaine ouverture automatiquement vu qu'il éxécutera le code update).

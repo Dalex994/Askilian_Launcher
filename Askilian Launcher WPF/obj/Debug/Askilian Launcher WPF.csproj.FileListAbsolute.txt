@@ -50,3 +50,5 @@ D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\UserControls\
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\UserControls\PopupUserControl.baml
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\SoonView.g.cs
 D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\MVVM\View\SoonView.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\SplashScreen.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Debug\SplashScreen.baml

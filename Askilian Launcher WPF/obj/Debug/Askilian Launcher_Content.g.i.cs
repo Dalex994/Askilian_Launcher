@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/backend2.0.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/updater.txt")]
 
 

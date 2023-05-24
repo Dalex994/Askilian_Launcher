@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         Height="600" Width="860"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip"
         Background="Transparent"
         AllowsTransparency="True">
@@ -58,7 +59,7 @@
                         MouseLeave="Home_MouseLeave"
                         Command="{Binding HomeViewCommand}">
                     
-                    <Image Source="/Assets/home-40.png"
+                    <Image Source="/Assets/Buttons/home-40.png"
                            Stretch="Fill"
                            Width="35"
                            Height="35"/>
@@ -92,7 +93,7 @@
                         MouseLeave="Project_MouseLeave"
                         Command="{Binding SoonViewCommand}">
                     
-                    <Image Source="/Assets/coming-soon-40.png"
+                    <Image Source="/Assets/Buttons/coming-soon-40.png"
                            Stretch="Fill"
                            Width="35"
                            Height="35"/>
@@ -135,7 +136,7 @@
                     Click="btnClose_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Assets/cancel-40.png"/>
+                    <ImageBrush  ImageSource="/Assets/Buttons/cancel-40.png"/>
                 </Button.Background>
 
             </Button>
@@ -151,7 +152,7 @@
                     Click="btnMinimize_Click">
 
                 <Button.Background>
-                    <ImageBrush  ImageSource="/Assets/subtract-40.png"/>
+                    <ImageBrush  ImageSource="/Assets/Buttons/subtract-40.png"/>
 
                 </Button.Background>
 

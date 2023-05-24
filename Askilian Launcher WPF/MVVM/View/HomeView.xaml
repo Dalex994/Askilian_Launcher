@@ -45,7 +45,7 @@
                 Grid.Row="1"
                 Click="Discord_Click">
 
-            <Image Source="/Assets/discord-80.png" Height="50"/>
+            <Image Source="/Assets/SocialNets/discord-80.png" Height="50"/>
         </Button>
 
         <Button x:Name="YouTube"
@@ -59,7 +59,7 @@
                 Grid.Row="1"
                 Click="YouTube_Click">
 
-            <Image Source="/Assets/youtube-50.png"/>
+            <Image Source="/Assets/SocialNets/youtube-50.png"/>
         </Button>
 
 
@@ -74,7 +74,7 @@
                 Grid.Row="1"
                 Click="Twitch_Click">
 
-            <Image Source="/Assets/twitch-50.png"/>
+            <Image Source="/Assets/SocialNets/twitch-50.png"/>
         </Button>
 
         <Button x:Name="TikTok"
@@ -88,7 +88,7 @@
                 Grid.Row="1"
                 Click="TikTok_Click">
 
-            <Image Source="/Assets/tiktok-50.png" 
+            <Image Source="/Assets/SocialNets/tiktok-50.png" 
                    Height="50"/>
         </Button>
 
@@ -103,7 +103,7 @@
                 Grid.Row="1"
                 Click="Facebook_Click">
 
-            <Image Source="/Assets/facebook-50.png"/>
+            <Image Source="/Assets/SocialNets/facebook-50.png"/>
         </Button>
         <!--#endregion-->
 

@@ -1,0 +1,49 @@
+﻿<Window x:Class="Askilian_Launcher.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Askilian_Launcher"
+        mc:Ignorable="d"
+        Background="Black"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="SplashScreen" 
+        Height="286" Width="500"
+        MouseDown="Window_MouseDown">
+
+    <Grid>
+
+        <Image Source="/Assets/Recherche_de_Mise_a_Jour.png"    
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+
+        <TextBlock Text="Ouverture du portail..."
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,244,0,0"
+                   Foreground="Beige"
+                   FontSize="16"
+                   Style="{StaticResource FontRotunda}"/>
+        
+        
+        <Button x:Name="btnClose"
+                Style="{DynamicResource CloseBtn_Style}" 
+                Grid.Column="1"
+                BorderThickness="0" 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="5"
+                Width="15"
+                Height="15"
+                Click="btnClose_Click">
+
+            <Button.Background>
+                <ImageBrush  ImageSource="/Assets/Buttons/cancel-40.png"/>
+            </Button.Background>
+
+        </Button>
+
+    </Grid>
+</Window>

@@ -246,6 +246,7 @@
 
     <!--#endregion-->
     
+    
     <!--#region Footer Button-->
    
     <Style x:Key="FooterButtonStyle" TargetType="{x:Type Button}">
@@ -279,5 +280,6 @@
         </Setter>
     </Style>
     <!--#endregion-->
+    
     
 </ResourceDictionary>
