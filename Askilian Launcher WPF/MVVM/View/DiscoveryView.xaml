@@ -15,7 +15,7 @@
                VerticalAlignment="Stretch"
                Opacity="50"/>
 
-        <Button Name="PlayMirum"
+        <Button Name="PlayButton1"
                 Style="{DynamicResource RoundedButton}"  
                 Width="144"
                 Height="55"
