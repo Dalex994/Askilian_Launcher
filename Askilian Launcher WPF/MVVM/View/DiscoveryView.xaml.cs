@@ -94,13 +94,13 @@ namespace Askilian_Launcher_WPF.MVVM.View
                     cts.Token.ThrowIfCancellationRequested();
 
                     CheckForUpdates();
-                    if (true)
+                    if ()
                     {
 
                     }
                     else
                     {
-                        Status = LauncherStatus.ready;
+                       Status= LauncherStatus.ready;
                     } // CODE HERE !!!!
 
                 }
