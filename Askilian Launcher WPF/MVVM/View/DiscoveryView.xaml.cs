@@ -57,6 +57,7 @@ namespace Askilian_Launcher_WPF.MVVM.View
             }
         }
 
+        
 
         public DiscoveryView()
         {
@@ -66,10 +67,30 @@ namespace Askilian_Launcher_WPF.MVVM.View
 
         private CancellationTokenSource cts;
 
-        private void CheckForUpdates()
+        private void CheckForUpdates(string localFolder, string remoteFolderUrl)
         {
-            
-            
+            // Step 1: Get a list of files in the local folder
+            var localFiles = Directory.GetFiles(localFolder, "*", SearchOption.AllDirectories);
+
+            // Step 2: Send an HTTP GET request to retrieve a list of files from the remote server folder
+            var request = (HttpWebRequest)WebRequest.Create(remoteFolderUrl);
+            request.Method = WebRequestMethods.Http.Get;
+            request.Accept = "*/*";
+            request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, br");
+            request.Headers.Add(HttpRequestHeader.CacheControl, "max-age=0");
+            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.None;
+            using (var response = (HttpWebResponse)request.GetResponse())
+            using (var stream = response.GetResponseStream())
+            using (var reader = new StreamReader(stream))
+            {
+                var remoteFiles = reader.ReadToEnd().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+                // Step 3: Compare the list of files in the local and remote folders to identify the files that are missing from the local folder
+                var missingFiles = remoteFiles.Select(f => new Uri(remoteFolderUrl + "/" + f))
+                                              .Except(localFiles.Select(f => new Uri(f)))
+                                              .ToList();
+            }
+
         }  
             private void ProcessUserControl()
         {
@@ -107,7 +128,8 @@ namespace Askilian_Launcher_WPF.MVVM.View
                 catch (Exception ex)
                 {
                     Status = LauncherStatus.failed;
-                    MessageBox.Show($"Invocation interrompue, erreur magique: {ex}");// Handle the cancellation, if necessary
+                    MessageBox.Show($"Invocation interrompue, erreur magique: {ex}");
+                    // Handle the cancellation, if necessary
                 }
             }
             else

@@ -9,6 +9,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
+        ContentRendered="Window_ContentRendered"
         Title="SplashScreen" 
         Height="286" Width="500"
         MouseDown="Window_MouseDown">
@@ -19,15 +20,23 @@
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
 
-        <TextBlock Text="Ouverture du portail..."
+        <TextBlock Name="TextButton"
+                   Text="Ouverture du portail..."
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Margin="0,244,0,0"
                    Foreground="Beige"
                    FontSize="16"
                    Style="{StaticResource FontRotunda}"/>
-        
-        
+
+        <TextBlock Name="VersionText"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   FontSize="15"
+                   Foreground="Beige"
+                   Style="{StaticResource FontRotunda}"
+                   Margin="0, 0, 10, 0"/>
+
         <Button x:Name="btnClose"
                 Style="{DynamicResource CloseBtn_Style}" 
                 Grid.Column="1"
