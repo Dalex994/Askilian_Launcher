@@ -4,10 +4,12 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Net;
 using System.Windows;
 using System.Windows.Input;
+using System.Net.Http;
+using System.Linq;
+using System.Threading;
 
 namespace Askilian_Launcher
 {
@@ -16,10 +18,11 @@ namespace Askilian_Launcher
     /// </summary>
     public partial class SplashScreen : Window
     {
-        private string rootPath;
-        private string versionFile;
-        private string LauncherZip;
-        private string LauncherExe;
+        private string remoteFolderUrl;
+        private string localFolder;
+        private string[] webFiles;
+        private string[] localFiles;
+        private CancellationTokenSource cts;
 
         private LauncherStatus _status;
 
@@ -40,6 +43,9 @@ namespace Askilian_Launcher
                     case LauncherStatus.downloadingUpdate:
                         TextButton.Text = "Invocation magique en cours...";
                         break;
+                    case LauncherStatus.searchingUpdate:
+                        TextButton.Text = "Recherche des grimoires...";
+                        break;
                     default:
                         break;
                 }
@@ -50,23 +56,15 @@ namespace Askilian_Launcher
         public SplashScreen()
         {
             InitializeComponent();
-            rootPath = Directory.GetCurrentDirectory();
-            versionFile = Path.Combine(rootPath, "Version.txt");
-            LauncherZip = Path.Combine(rootPath, "BuildLauncher.zip");
-            LauncherExe = Path.Combine(rootPath, "AskilianPortal.exe");
-            
-        }
-
-        // TEMPORARY
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            
-                // MUST TELL THAT THE UPDATE MUST BE COMPLETED BEFORE LOADED
+            cts = new CancellationTokenSource();
+            remoteFolderUrl = "Url Here";
+            localFolder = Directory.GetCurrentDirectory();
+            webFiles = null;
+            ContentRendered += Window_ContentRendered;
+            // MUST TELL THAT THE UPDATE MUST BE COMPLETED BEFORE LOADED
             new MainWindow().Show();
-            // Close the splash screen window
-            this.Close();
+            this.Close();   
         }
-        // End of Temporary Function
 
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -80,163 +78,80 @@ namespace Askilian_Launcher
             Close();
         }
 
-        private void CheckForUpdates()
+
+        private void UpdateLocalFolder(string localFolder, string remoteFolderUrl)
         {
-            if (File.Exists(versionFile))
-            {
-                Version localversion = new Version(File.ReadAllText(versionFile));
-                VersionText.Text = localversion.ToString();
+            // Step 1: Get a list of files in the local folder
+            var localFiles = Directory.GetFiles(localFolder, "*", SearchOption.AllDirectories);
 
-                try
-                {
-                    WebClient webClient = new WebClient();
-                    Version onlineVersion = new Version(webClient.DownloadString("Version File Link"));
-
-                    if (onlineVersion.IsDifferentThan(localversion))
-                    {
-                        InstallGameFiles(true, onlineVersion);
-                    }
-                    else
-                    {
-                        Status = LauncherStatus.ready;
-                    }
-                }
-                catch (Exception ex) 
-                {
-                    Status = LauncherStatus.failed;
-                    //Debug
-                    MessageBox.Show($"Error checking for game updates: {ex}");
-                }
-            }
-            else
-            {
-                InstallGameFiles(false, Version.zero);
-            }
-        }
-
-        private void InstallGameFiles(bool _isUpdate, Version _onlineversion)
-        {
             try
             {
-                WebClient webClient = new WebClient();
-                if (_isUpdate)
+                // Step 2: Send an HTTP GET request to retrieve a list of files from the remote server folder
+                var request = (HttpWebRequest)WebRequest.Create(remoteFolderUrl);
+                request.Method = WebRequestMethods.Http.Get;
+                request.Accept = "*/*";
+                request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, none");
+                request.Headers.Add(HttpRequestHeader.CacheControl, "max-age=0");
+                request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.None;
+                using (var response = (HttpWebResponse)request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                using (var reader = new StreamReader(stream))
                 {
-                    Status = LauncherStatus.downloadingUpdate;
+                    var remoteFiles = reader.ReadToEnd().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                    cts.Token.ThrowIfCancellationRequested();
+                    // Step 3: Compare the list of files in the local and remote folders to identify the files that are missing from the local folder
+                    var missingFiles = remoteFiles.Select(f => new Uri(remoteFolderUrl + "/" + f))
+                                                  .Except(localFiles.Select(f => new Uri(f)))
+                                                  .ToList();
+
+                    try
+                    {
+                        // Step 4: Download the missing files to the local folder, using the same subfolders as on the web
+                        Status = LauncherStatus.downloadingUpdate;
+                        using (var webClient = new WebClient())
+                        {
+                            cts.Token.ThrowIfCancellationRequested();
+                            foreach (var missingFileUrl in missingFiles)
+                            {
+                                var missingFilePath = Path.Combine(localFolder, missingFileUrl.LocalPath.TrimStart('/'));
+                                if (!Directory.Exists(Path.GetDirectoryName(missingFilePath)))
+                                    Directory.CreateDirectory(Path.GetDirectoryName(missingFilePath));
+                                webClient.DownloadFile(missingFileUrl, missingFilePath);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Status = LauncherStatus.failed;
+                        // Debug
+                        MessageBox.Show($"Error finishing download: {ex}");
+                    }
+
+                    // Step 5: Delete any files in the local subfolder that are not present in the remote subfolder
+                    foreach (var localFile in localFiles)
+                    {
+                        cts.Token.ThrowIfCancellationRequested();
+                        var localFileName = Path.GetFileName(localFile);
+                        if (!remoteFiles.Contains(remoteSubfolderUrl + "/" + localFileName))
+                        {
+                            File.Delete(localFile);
+                        }
+                    }
                 }
-
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGAmeCompletedCallback);
-                webClient.DownloadFileAsync(new Uri("GameZipLink"), LauncherZip, _onlineversion);
-
             }
-            catch (Exception ex)
-            {
-                Status = LauncherStatus.failed;
-                // Debug
-                MessageBox.Show($"Error installing game files: {ex}");
-            }
-        }
-
-        private void DownloadGAmeCompletedCallback(object sender, AsyncCompletedEventArgs e)
-        {
-            try
-            {
-                string onlineVersion = ((Version)e.UserState).ToString();
-                ZipFile.ExtractToDirectory(LauncherZip, rootPath, true);
-                File.Delete(LauncherZip);
-
-                File.WriteAllText(versionFile, onlineVersion);
-
-                VersionText.Text = onlineVersion;
-                Status = LauncherStatus.ready;
-            }
-            catch (Exception ex)
-            {
-                Status = LauncherStatus.failed;
-                // Debug
-                MessageBox.Show($"Error finishing download: {ex}");
-            }
-        }
-
-        private void InstanceCall(object sender, EventArgs e)
-        {
-            if (File.Exists(LauncherExe) && Status == LauncherStatus.ready)
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo(LauncherExe);
-                startInfo.WorkingDirectory = Path.Combine(rootPath, "Build");
-                Process.Start(startInfo);
-
-                Close();
-            }
-            else if (Status == LauncherStatus.failed) 
+            catch (Exception ex) 
             { 
-                CheckForUpdates();
+                Status = LauncherStatus.failed;
+                //Debug
+                MessageBox.Show($"Error attempting to doxnload: {ex.Message}");    
             }
         }
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            CheckForUpdates();
+            UpdateLocalFolder(localFolder, remoteFolderUrl);
         }
 
-        struct Version
-        {
-            internal static Version zero = new Version(0, 0, 0);
-
-            private short major;
-            private short minor;
-            private short subMinor;
-
-            internal Version(short _major, short _minor, short _subMinor)
-            {
-                major = _major; 
-                minor = _minor; 
-                subMinor = _subMinor;
-
-            }
-
-            internal Version(string _version)
-            {
-                string[] _versionStrings = _version.Split('.');
-                if (_versionStrings.Length != 3 ) {
-                    major = 0;
-                    minor = 0;
-                    subMinor = 0;
-                    return;
-                }
-
-                major = short.Parse(_versionStrings[0]);
-                minor = short.Parse(_versionStrings[1]);
-                subMinor = short.Parse(_versionStrings[2]);
-            }
-
-            internal bool IsDifferentThan(Version _otherVersion)
-            {
-                if (major != _otherVersion.minor)
-                {
-                    return true;
-                }
-                else
-                {
-                    if (minor != _otherVersion.minor)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        if (subMinor != _otherVersion.subMinor)
-                        {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-
-            public override string ToString()
-            {
-                return $"{major}.{minor}.{subMinor}";
-            }
-        }
-
+        
     }
 }

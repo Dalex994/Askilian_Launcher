@@ -57,3 +57,56 @@ public void UpdateLocalFolder(string localFolder, string remoteFolderUrl)
         }
     }
 }
+
+
+ private void InstallGameFiles(bool _isUpdate, Version _onlineversion)
+        {
+            try
+            {
+                WebClient webClient = new WebClient();
+                if (_isUpdate)
+                {
+                    Status = LauncherStatus.downloadingUpdate;
+                }
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                Status = LauncherStatus.failed;
+                // Debug
+                MessageBox.Show($"Error installing game files: {ex}");
+            }
+        }
+
+        private void DownloadGAmeCompletedCallback(object sender, AsyncCompletedEventArgs e)
+        {
+            try
+            {
+                
+                Status = LauncherStatus.ready;
+            }
+            catch (Exception ex)
+            {
+                Status = LauncherStatus.failed;
+                // Debug
+                MessageBox.Show($"Error finishing download: {ex}");
+            }
+        }
+
+        private void InstanceCall(object sender, EventArgs e)
+        {
+            if (File.Exists("Here the name of the file") && Status == LauncherStatus.ready)
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WorkingDirectory = Path.Combine(rootPath, "Build");
+                Process.Start(startInfo);
+
+                Close();
+            }
+            else if (Status == LauncherStatus.failed) 
+            { 
+                CheckForUpdates();
+            }
+        }

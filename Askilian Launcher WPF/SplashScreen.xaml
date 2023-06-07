@@ -19,6 +19,7 @@
         <Image Source="/Assets/Recherche_de_Mise_a_Jour.png"    
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
+        
 
         <TextBlock Name="TextButton"
                    Text="Ouverture du portail..."
@@ -28,14 +29,7 @@
                    Foreground="Beige"
                    FontSize="16"
                    Style="{StaticResource FontRotunda}"/>
-
-        <TextBlock Name="VersionText"
-                   VerticalAlignment="Bottom"
-                   HorizontalAlignment="Left"
-                   FontSize="15"
-                   Foreground="Beige"
-                   Style="{StaticResource FontRotunda}"
-                   Margin="0, 0, 10, 0"/>
+        
 
         <Button x:Name="btnClose"
                 Style="{DynamicResource CloseBtn_Style}" 

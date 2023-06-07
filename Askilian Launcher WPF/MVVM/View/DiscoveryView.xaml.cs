@@ -20,7 +20,8 @@ namespace Askilian_Launcher_WPF.MVVM.View
         ready,
         failed,
         downloadingGame,
-        downloadingUpdate
+        downloadingUpdate,
+        searchingUpdate
     }
 
     /// <summary>
