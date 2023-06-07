@@ -79,6 +79,7 @@ namespace Askilian_Launcher
         }
 
 
+        // Update function by automatic search
         private void UpdateLocalFolder(string localFolder, string remoteFolderUrl)
         {
             // Step 1: Get a list of files in the local folder
@@ -132,7 +133,8 @@ namespace Askilian_Launcher
                     {
                         cts.Token.ThrowIfCancellationRequested();
                         var localFileName = Path.GetFileName(localFile);
-                        if (!remoteFiles.Contains(remoteSubfolderUrl + "/" + localFileName))
+                        if (!remoteFiles.Contains(remoteFolderUrl + "/" + localFileName))
+                            // Verify for the remoteFolderUrl
                         {
                             File.Delete(localFile);
                         }
