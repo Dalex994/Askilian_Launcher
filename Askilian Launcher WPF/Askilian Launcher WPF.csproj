@@ -216,5 +216,8 @@
   <ItemGroup>
     <Resource Include="Assets\Updater.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Version.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

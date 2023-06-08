@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Net.Http;
 using System.Linq;
 using System.Threading;
+using System.Reflection;
 
 namespace Askilian_Launcher
 {
@@ -22,6 +23,8 @@ namespace Askilian_Launcher
         private string localFolder;
         private string[] webFiles;
         private string[] localFiles;
+        private string VersionName;
+        private string VersionContent;
         private CancellationTokenSource cts;
 
         private LauncherStatus _status;
@@ -60,6 +63,7 @@ namespace Askilian_Launcher
             remoteFolderUrl = "Url Here";
             localFolder = Directory.GetCurrentDirectory();
             webFiles = null;
+            VersionName = "Askilian_Launcher.Version.txt";
             ContentRendered += Window_ContentRendered;
             // MUST TELL THAT THE UPDATE MUST BE COMPLETED BEFORE LOADED
             new MainWindow().Show();
@@ -133,7 +137,7 @@ namespace Askilian_Launcher
                     {
                         cts.Token.ThrowIfCancellationRequested();
                         var localFileName = Path.GetFileName(localFile);
-                        if (!remoteFiles.Contains(remoteFolderUrl + "/" + localFileName))
+                        if (!remoteFiles.Contains(Path.GetFileName(localFile)))
                             // Verify for the remoteFolderUrl
                         {
                             File.Delete(localFile);
@@ -147,7 +151,21 @@ namespace Askilian_Launcher
                 //Debug
                 MessageBox.Show($"Error attempting to doxnload: {ex.Message}");    
             }
+
+
+            // Step Optional: Read the Version file and show it. The Version file must be in the project Path
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(VersionName))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    VersionContent = reader.ReadToEnd();
+                }
+            }
+            Version.Text = VersionContent;
+
         }
+
+
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {

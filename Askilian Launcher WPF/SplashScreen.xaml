@@ -19,7 +19,16 @@
         <Image Source="/Assets/Recherche_de_Mise_a_Jour.png"    
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
-        
+
+        <TextBlock Name="Version"
+                   Text="0.0.1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="15,15,0,0"
+                   Foreground="Beige"
+                   FontSize="13"
+                   Style="{StaticResource FontRotunda}"/>
+
 
         <TextBlock Name="TextButton"
                    Text="Ouverture du portail..."

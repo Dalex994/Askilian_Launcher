@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/updater.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("version.txt")]
 
 
