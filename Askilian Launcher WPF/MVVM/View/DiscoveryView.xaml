@@ -30,7 +30,14 @@
                 Cursor="Hand"
                 FontSize="23"/>
 
-
+        <TextBlock Name="MirumVersion"
+                   Text="0.3.2"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Margin="25,25,25,25"
+                   Foreground="Beige"
+                   FontSize="15"
+                   Style="{StaticResource FontRotunda}"/>
 
     </Grid>
 </UserControl>

@@ -30,6 +30,8 @@ namespace Askilian_Launcher_WPF.MVVM.View
     public partial class DiscoveryView : UserControl
     {
         private LauncherStatus _status;
+        private string MirumVersionPath;
+        private string MirumVersionContents;
 
         internal LauncherStatus Status
         {
@@ -63,6 +65,7 @@ namespace Askilian_Launcher_WPF.MVVM.View
         public DiscoveryView()
         {
             InitializeComponent();
+            MirumVersionPath = "Remote folder Url + MirumVersion indicated";
             Loaded += UserControl1_Loaded;
         }
 
@@ -84,7 +87,7 @@ namespace Askilian_Launcher_WPF.MVVM.View
             using (var stream = response.GetResponseStream())
             using (var reader = new StreamReader(stream))
             {
-                var remoteFiles = reader.ReadToEnd().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+                var remoteFiles = reader.ReadToEnd().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
                 // Step 3: Compare the list of files in the local and remote folders to identify the files that are missing from the local folder
                 var missingFiles = remoteFiles.Select(f => new Uri(remoteFolderUrl + "/" + f))
@@ -139,6 +142,14 @@ namespace Askilian_Launcher_WPF.MVVM.View
             }
         }
         
+        private void VersionUpdatingToaddlateronthemainfunction()
+        {
+            using (var webClient = new WebClient())
+            {
+                webClient.DownloadFile(MirumVersionPath, )
+            }
+        }
+
         private void PlayButton1_Click(object sender, RoutedEventArgs e)
         {
 
