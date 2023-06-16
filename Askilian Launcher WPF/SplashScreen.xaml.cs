@@ -59,6 +59,7 @@ namespace Askilian_Launcher
         public SplashScreen()
         {
             InitializeComponent();
+            GetVersion();
             cts = new CancellationTokenSource();
             remoteFolderUrl = "Url Here";
             localFolder = Directory.GetCurrentDirectory();
@@ -91,68 +92,65 @@ namespace Askilian_Launcher
 
             try
             {
-                // Step 2: Send an HTTP GET request to retrieve a list of files from the remote server folder
-                var request = (HttpWebRequest)WebRequest.Create(remoteFolderUrl);
-                request.Method = WebRequestMethods.Http.Get;
-                request.Accept = "*/*";
-                request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, none");
-                request.Headers.Add(HttpRequestHeader.CacheControl, "max-age=0");
-                request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.None;
-                using (var response = (HttpWebResponse)request.GetResponse())
-                using (var stream = response.GetResponseStream())
-                using (var reader = new StreamReader(stream))
+                foreach (var localFile in localFiles)
                 {
-                    var remoteFiles = reader.ReadToEnd().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                    cts.Token.ThrowIfCancellationRequested();
-                    // Step 3: Compare the list of files in the local and remote folders to identify the files that are missing from the local folder
-                    var missingFiles = remoteFiles.Select(f => new Uri(remoteFolderUrl + "/" + f))
-                                                  .Except(localFiles.Select(f => new Uri(f)))
-                                                  .ToList();
+                    // Get the file path relative to the source folder
+                    var relativeFilePath = localFile.Replace(localFolder + Path.DirectorySeparatorChar, "");
 
-                    try
-                    {
-                        // Step 4: Download the missing files to the local folder, using the same subfolders as on the web
-                        Status = LauncherStatus.downloadingUpdate;
-                        using (var webClient = new WebClient())
+                        // Get the corresponding path for the file on the web server
+                        var webServerFilePath = Path.Combine(remoteFolderUrl, relativeFilePath);
+                        cts.Token.ThrowIfCancellationRequested();
+
+                        // Check if the file exists on the web server and if it is newer than the local file
+                        if (File.Exists(webServerFilePath) && File.GetLastWriteTimeUtc(webServerFilePath) > File.GetLastWriteTimeUtc(localFile))
                         {
-                            cts.Token.ThrowIfCancellationRequested();
-                            foreach (var missingFileUrl in missingFiles)
+                            // Get the directory path for the file in the destination folder
+                            var destinationFolderFilePath = Path.Combine(remoteFolderUrl, Path.GetDirectoryName(relativeFilePath));
+
+                            try
                             {
-                                var missingFilePath = Path.Combine(localFolder, missingFileUrl.LocalPath.TrimStart('/'));
-                                if (!Directory.Exists(Path.GetDirectoryName(missingFilePath)))
-                                    Directory.CreateDirectory(Path.GetDirectoryName(missingFilePath));
-                                webClient.DownloadFile(missingFileUrl, missingFilePath);
+                            // Create the directory if it doesn't exist
+                            cts.Token.ThrowIfCancellationRequested();
+                            if (!Directory.Exists(destinationFolderFilePath))
+                            {
+                                Directory.CreateDirectory(destinationFolderFilePath);
+                            }
+
+                            // Copy the file from the web server to the local folder
+                            Status = LauncherStatus.downloadingUpdate;
+                            File.Copy(webServerFilePath, localFile, true);
+                            cts.Token.ThrowIfCancellationRequested();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                Status = LauncherStatus.failed;
+                                //Debug
+                                MessageBox.Show($"Error finishing to download: {ex}");
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Status = LauncherStatus.failed;
-                        // Debug
-                        MessageBox.Show($"Error finishing download: {ex}");
-                    }
-
-                    // Step 5: Delete any files in the local subfolder that are not present in the remote subfolder
-                    foreach (var localFile in localFiles)
-                    {
-                        cts.Token.ThrowIfCancellationRequested();
-                        var localFileName = Path.GetFileName(localFile);
-                        if (!remoteFiles.Contains(Path.GetFileName(localFile)))
-                            // Verify for the remoteFolderUrl
+                        else
                         {
+                            // Delete the file if it doesn't exist on the web server
+                            cts.Token.ThrowIfCancellationRequested();
                             File.Delete(localFile);
                         }
-                    }
+                    
+
+                    
                 }
             }
             catch (Exception ex) 
             { 
                 Status = LauncherStatus.failed;
                 //Debug
-                MessageBox.Show($"Error attempting to doxnload: {ex.Message}");    
+                MessageBox.Show($"Error attempting to download: {ex}");    
             }
 
+        }
 
+        private void GetVersion()
+        {
             // Step Optional: Read the Version file and show it. The Version file must be in the project Path
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(VersionName))
             {
@@ -162,10 +160,7 @@ namespace Askilian_Launcher
                 }
             }
             Version.Text = VersionContent;
-
         }
-
-
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
