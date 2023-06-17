@@ -76,7 +76,7 @@ namespace Askilian_Launcher_WPF.MVVM.View
         {
             InitializeComponent();
             MirumPath = Directory.GetCurrentDirectory();
-            MirumRemoteUrl = "https://onedrive.live.com/download?cid=FB971FAC14D737C0&resid=FB971FAC14D737C0%21201&authkey=AGzJT1iQYzx0oWo";
+            MirumRemoteUrl = "http://188.213.140.23/MirumOrbis/";
             exeExists = File.Exists(MirumPath);
             rootPath = rootPath;
             folderPath = System.IO.Path.Combine(rootPath, folderName);
