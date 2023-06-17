@@ -41,10 +41,10 @@ namespace Askilian_Launcher
                         TextButton.Text = "Ouverture du portail...";
                         break;
                     case LauncherStatus.failed:
-                        TextButton.Text = "Incantation ratée ^^' - Réessayer";
+                        TextButton.Text = "Magicien crevé, c'est raté ^^'";
                         break;
                     case LauncherStatus.downloadingUpdate:
-                        TextButton.Text = "Invocation magique en cours...";
+                        TextButton.Text = "Changement de gardien";
                         break;
                     case LauncherStatus.searchingUpdate:
                         TextButton.Text = "Recherche des grimoires...";
@@ -61,7 +61,7 @@ namespace Askilian_Launcher
             InitializeComponent();
             GetVersion();
             cts = new CancellationTokenSource();
-            remoteFolderUrl = "Url Here";
+            remoteFolderUrl = "https://onedrive.live.com/download?cid=FB971FAC14D737C0&resid=FB971FAC14D737C0%21200&authkey=ALOCmxYUGFVZatQ";
             localFolder = Directory.GetCurrentDirectory();
             webFiles = null;
             VersionName = "Askilian_Launcher.Version.txt";
@@ -87,6 +87,7 @@ namespace Askilian_Launcher
         // Update function by automatic search
         private void UpdateLocalFolder(string localFolder, string remoteFolderUrl)
         {
+            Status = LauncherStatus.searchingUpdate;
             // Step 1: Get a list of files in the local folder
             var localFiles = Directory.GetFiles(localFolder, "*", SearchOption.AllDirectories);
 

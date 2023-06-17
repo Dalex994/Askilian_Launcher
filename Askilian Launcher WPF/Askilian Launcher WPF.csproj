@@ -181,7 +181,6 @@
     <Resource Include="Assets\Buttons\cancel-40.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Buttons\maximize-40.png" />
     <Resource Include="Assets\Buttons\subtract-40.png" />
   </ItemGroup>
   <ItemGroup>
@@ -201,7 +200,6 @@
     <Resource Include="Assets\image3.png" />
     <Resource Include="Assets\SocialNets\twitch-50.png" />
     <Resource Include="Assets\SocialNets\youtube-50.png" />
-    <Resource Include="Assets\BackEndAL.txt" />
     <Resource Include="Assets\SocialNets\discord-80.png" />
     <Resource Include="Assets\SocialNets\facebook-50.png" />
     <Resource Include="Assets\SocialNets\tiktok-50.png" />
@@ -209,12 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Recherche_de_Mise_a_Jour.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\BackEndfinal.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Updater.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Version.txt" />

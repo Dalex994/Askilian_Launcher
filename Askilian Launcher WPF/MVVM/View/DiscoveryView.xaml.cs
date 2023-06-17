@@ -6,6 +6,7 @@ using System.IO.Compression;
 using System.Threading;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Win32;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,7 @@ namespace Askilian_Launcher_WPF.MVVM.View
         failed,
         downloadingGame,
         downloadingUpdate,
-        searchingUpdate
+        searchingUpdate,
     }
 
     /// <summary>
@@ -30,8 +31,14 @@ namespace Askilian_Launcher_WPF.MVVM.View
     public partial class DiscoveryView : UserControl
     {
         private LauncherStatus _status;
-        private string MirumVersionPath;
-        private string MirumVersionContents;
+        private string MirumPath;
+        private string MirumRemoteUrl;
+        private bool exeExists;
+        private string folderPath;
+        private string rootPath;
+        private string folderName;
+
+
 
         internal LauncherStatus Status
         {
@@ -45,13 +52,16 @@ namespace Askilian_Launcher_WPF.MVVM.View
                         PlayButton1.Content = "Entrer";
                         break;
                     case LauncherStatus.failed:
-                        PlayButton1.Content = "Incantation ratée - Réessayer";
+                        PlayButton1.Content = "Incantation ratée";
                         break;
                     case LauncherStatus.downloadingGame:
-                        PlayButton1.Content = "Archivage du monde en cours";
+                        PlayButton1.Content = "Invocation...";
                         break;
                     case LauncherStatus.downloadingUpdate:
                         PlayButton1.Content = "Révision des sorts en cours";
+                        break;
+                    case LauncherStatus.searchingUpdate:
+                        PlayButton1.Content = "Recherche magique...";
                         break;
                     default:
                         break;
@@ -65,94 +75,147 @@ namespace Askilian_Launcher_WPF.MVVM.View
         public DiscoveryView()
         {
             InitializeComponent();
-            MirumVersionPath = "Remote folder Url + MirumVersion indicated";
-            Loaded += UserControl1_Loaded;
+            MirumPath = Directory.GetCurrentDirectory();
+            MirumRemoteUrl = "https://onedrive.live.com/download?cid=FB971FAC14D737C0&resid=FB971FAC14D737C0%21201&authkey=AGzJT1iQYzx0oWo";
+            exeExists = File.Exists(MirumPath);
+            rootPath = rootPath;
+            folderPath = System.IO.Path.Combine(rootPath, folderName);
+            folderName = "Mirum Orbis";
+            Loaded += PlayButton1_Click;
         }
 
         private CancellationTokenSource cts;
 
-        private void CheckForUpdates(string localFolder, string remoteFolderUrl)
+        private void UpdateGame()
         {
+            
             // Step 1: Get a list of files in the local folder
-            var localFiles = Directory.GetFiles(localFolder, "*", SearchOption.AllDirectories);
+            var localFiles = Directory.GetFiles(MirumPath, "*", SearchOption.AllDirectories);
 
-            // Step 2: Send an HTTP GET request to retrieve a list of files from the remote server folder
-            var request = (HttpWebRequest)WebRequest.Create(remoteFolderUrl);
-            request.Method = WebRequestMethods.Http.Get;
-            request.Accept = "*/*";
-            request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, br");
-            request.Headers.Add(HttpRequestHeader.CacheControl, "max-age=0");
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.None;
-            using (var response = (HttpWebResponse)request.GetResponse())
-            using (var stream = response.GetResponseStream())
-            using (var reader = new StreamReader(stream))
+            try
             {
-                var remoteFiles = reader.ReadToEnd().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-                // Step 3: Compare the list of files in the local and remote folders to identify the files that are missing from the local folder
-                var missingFiles = remoteFiles.Select(f => new Uri(remoteFolderUrl + "/" + f))
-                                              .Except(localFiles.Select(f => new Uri(f)))
-                                              .ToList();
-            }
-
-        }  
-            private void ProcessUserControl()
-        {
-            // Create an instance of UserControl1
-            UserControl userControl = new UserControl();
-
-            // Create a new CancellationTokenSource object
-            cts = new CancellationTokenSource();
-
-            // Attach UserControl1_Loaded event handler
-            userControl.Loaded += UserControl1_Loaded;
-        }
-
-
-        private async void UserControl1_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (true)
-            {
-                try
+                foreach (var localFile in localFiles)
                 {
-                    // Check if the CancellationToken has been cancelled
+                    // Get the file path relative to the source folder
+                    var relativeFilePath = localFile.Replace(MirumPath + Path.DirectorySeparatorChar, "");
+
+                    // Get the corresponding path for the file on the web server
+                    var webServerFilePath = Path.Combine(MirumRemoteUrl, relativeFilePath);
                     cts.Token.ThrowIfCancellationRequested();
 
-                    CheckForUpdates();
-                    if ()
+                    if (File.GetLastWriteTimeUtc(webServerFilePath) == File.GetLastWriteTimeUtc(localFile))
                     {
-
+                        Status = LauncherStatus.ready;
+                        Process.Start(rootPath, "Mirum Orbis.exe");
                     }
                     else
                     {
-                       Status= LauncherStatus.ready;
-                    } // CODE HERE !!!!
+                        // Check if the file exists on the web server and if it is newer than the local file
+                        if (File.Exists(webServerFilePath) && File.GetLastWriteTimeUtc(webServerFilePath) > File.GetLastWriteTimeUtc(localFile))
+                        {
+                            // Get the directory path for the file in the destination folder
+                            var destinationFolderFilePath = Path.Combine(MirumRemoteUrl, Path.GetDirectoryName(relativeFilePath));
+
+                            try
+                            {
+                                // Create the directory if it doesn't exist
+                                cts.Token.ThrowIfCancellationRequested();
+                                if (!Directory.Exists(destinationFolderFilePath))
+                                {
+                                    Directory.CreateDirectory(destinationFolderFilePath);
+                                }
+
+                                // Copy the file from the web server to the local folder
+                                Status = LauncherStatus.downloadingUpdate;
+                                File.Copy(webServerFilePath, localFile, true);
+                                cts.Token.ThrowIfCancellationRequested();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                Status = LauncherStatus.failed;
+                                //Debug
+                                MessageBox.Show($"Error finishing to download: {ex}");
+                            }
+                        }
+                        else
+                        {
+                            // Delete the file if it doesn't exist on the web server
+                            cts.Token.ThrowIfCancellationRequested();
+                            File.Delete(localFile);
+                        }
+                    }
+                    
 
                 }
-                catch (Exception ex)
-                {
-                    Status = LauncherStatus.failed;
-                    MessageBox.Show($"Invocation interrompue, erreur magique: {ex}");
-                    // Handle the cancellation, if necessary
-                }
             }
-            else
+            catch (Exception ex)
             {
-                // Install game files
+                Status = LauncherStatus.failed;
+                //Debug
+                MessageBox.Show($"Error attempting to download: {ex}");
             }
+
         }
-        
-        private void VersionUpdatingToaddlateronthemainfunction()
+
+
+        private void DownloadGame()
         {
-            using (var webClient = new WebClient())
+            // Open a dialog window to choose the directory => works only for Windows
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.FileName = "Select a Directory"; // Default file name
+            dialog.Filter = "Folders|*.this.directory.only"; // Filter files by extension
+            dialog.CheckFileExists = false;
+            dialog.CheckPathExists = true;
+            dialog.ValidateNames = false;
+            dialog.Title = "Select a Directory";
+
+            try
             {
-                webClient.DownloadFile(MirumVersionPath, )
+                if (dialog.ShowDialog() == true)
+                {
+                    rootPath = System.IO.Path.GetDirectoryName(dialog.FileName);
+                    // Debug
+                    Console.WriteLine($"Selected directory: {rootPath}");
+                    
+                    // Download the Game folder
+                    Status = LauncherStatus.downloadingGame;
+                    Directory.CreateDirectory(folderPath);
+                    using (var client = new WebClient())
+                    {
+                        client.DownloadFile(MirumRemoteUrl, folderPath);
+                        cts.Token.ThrowIfCancellationRequested();
+                        
+                    }
+                    Status = LauncherStatus.ready;
+                }
+
             }
+            catch (Exception ex)
+            {
+                Status = LauncherStatus.failed;
+                MessageBox.Show($"Invocation interrompue, erreur magique: {ex}");
+                // Handle the cancellation, if necessary
+            }
+
         }
 
         private void PlayButton1_Click(object sender, RoutedEventArgs e)
         {
+            if (exeExists)
+            {
+                // If the .exe file already exists, then find if any update is available
+                Status = LauncherStatus.searchingUpdate;
+                
 
+            }
+            else 
+            {
+                // If it doesn't exists, install the game
+                DownloadGame();
+                Process.Start(rootPath,"Mirum Orbis.exe");
+
+            }
         }
 
     }
