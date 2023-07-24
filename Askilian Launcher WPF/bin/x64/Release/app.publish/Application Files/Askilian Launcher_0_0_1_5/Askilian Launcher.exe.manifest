@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Askilian Launcher.exe" version="0.0.1.5" publicKeyToken="2a639ab5867cf3c8" language="fr" processorArchitecture="amd64" type="win32" />
+  <description asmv2:iconFile="logo_askilian_256px.ico" asmv2:publisher="Askilian Studios" asmv2:product="Askilian Portal" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Askilian Launcher" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+    <commandLine file="Askilian Launcher.exe" parameters="" />
+  </entryPoint>
+  <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Options de manifeste UAC
+          Pour changer le niveau du contrôle de compte d'utilisateur Windows, remplacez le
+          nœud requestedExecutionLevel par l'une des propositions suivantes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Pour utiliser la virtualisation des fichiers et du Registre afin d'assurer
+         une compatibilité ascendante, supprimez le nœud requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Askilian Launcher.exe" size="1611232">
+      <assemblyIdentity name="Askilian Launcher" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>eTLRJI8sthZ1O8LCUtRmoHdXPKkiQ8v/hqp4rMEFQPk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Askilian Launcher.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oWu74zvPy0v3fB+cE0VM1nicyfA0TvANUiqy8USokWE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="logo_askilian_256px.ico" size="71835">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>taVRSSGYFigIJ1DdjxX5QH2UCrAMkQ/1XygPANEFvL0=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=LAPTOP-LKSV6BI3\damie" issuerKeyHash="a9a42accef0181f378866305ec478ef4b9e2e209" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>sAVvE4XEi8fmd0jiG/AWYrS0NvRxlJQFdCybn593T9c=</DigestValue></Reference></SignedInfo><SignatureValue>dSL10gWGCiaYLKcAGYyXLGI+t0Am0nHm3btzW4BwRntgqP4JxBmDGHsa8i86aOST1vPxHTNwwR57ryD7sOPO+omBGdS2pWfJpSa8d/Wd9uVOC7FdVssk713Q/N35mbjuqCQOwh2qw2w/WyajwryIToLQUOMKe7K5MCGr8i3ANfg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>rE7peOt3p2LYhmbhg1/vov0jbfVx3kmmzRXFto0Qsk1L6obmGxC71lb+new+bE6Q8dp32l0QlhVJSc9phRtdMHmgdaEZdjwZ67kDKjhQ2hN0swcPK1mU2Dir57LgrNuxeI3Ll1oR576lfJbQetBfyHd4zmQCKWACemIg41CcafU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d74f779f9f9b2c7405949471f436b4b46216f01be24877e6c78bc485136f05b0" Description="" Url=""><as:assemblyIdentity name="Askilian Launcher.exe" version="0.0.1.5" publicKeyToken="2a639ab5867cf3c8" language="fr" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LAPTOP-LKSV6BI3\damie</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>MY8qJIadW1HGHni0jkS6r8nnxM1h3OXR/flZY7F+XE4=</DigestValue></Reference></SignedInfo><SignatureValue>atv6Y6nE+epWbqUtEzl6mbkXjC9bEJeABxAtyhxK4Z7MTJUKf41PXuW7zGzlqUSW8TQjR22cErKTOjIgEt8JwKNhl2yavxxHTyHlqSLkRYPEEJzZKK0lT/kPEjzZKHYxsX5dKj9unxyvoNdGy4cmrq++Fbho5IDTVaf4bLRU+wk=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>rE7peOt3p2LYhmbhg1/vov0jbfVx3kmmzRXFto0Qsk1L6obmGxC71lb+new+bE6Q8dp32l0QlhVJSc9phRtdMHmgdaEZdjwZ67kDKjhQ2hN0swcPK1mU2Dir57LgrNuxeI3Ll1oR576lfJbQetBfyHd4zmQCKWACemIg41CcafU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQF8g2XWTTl5pHmiKST2BE6TANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQBMAEsAUwBWADYAQgBJADMAXABkAGEAbQBpAGUwHhcNMjMwNzIxMjAyNDI1WhcNMjQwNzIxMDIyNDI1WjA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQBMAEsAUwBWADYAQgBJADMAXABkAGEAbQBpAGUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKxO6Xjrd6di2IZm4YNf76L9I231cd5Jps0VxbaNELJNS+qG5hsQu9ZW/p3sPmxOkPHad9pdEJYVSUnPaYUbXTB5oHWhGXY8Geu5Ayo4UNoTdLMHDytZlNg4q+ey4KzbsXiNy5daEee+pXyW0HrQX8h3eM5kAilgAnpiIONQnGn1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAR7G9inJRS6ZaNJ55Nb14RUPVxJzUCQ0wQ9DYJB6KK75OP0BBruDscF8Xg0oxNf2BqrCh9RWvrChCRKoebrKZm/MdnGCWw6WmlXlvvDBWxNuI5ur29NFFSku5Jb5pQgA8X2E4iZ6qhRk/muWzCkgdLU2+Typ0tsf9qfTNArljbs8=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

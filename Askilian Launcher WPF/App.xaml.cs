@@ -13,5 +13,6 @@ namespace Askilian_Launcher_WPF
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

@@ -206,17 +206,16 @@ namespace Askilian_Launcher_WPF.MVVM.View
             {
                 // If the .exe file already exists, then find if any update is available
                 Status = LauncherStatus.searchingUpdate;
-                
+                UpdateGame();
 
             }
-            else 
+            else
             {
                 // If it doesn't exists, install the game
                 DownloadGame();
-                Process.Start(rootPath,"Mirum Orbis.exe");
+                Process.Start(rootPath, "Mirum Orbis.exe");
 
             }
         }
-
     }
 }

@@ -1,0 +1,5 @@
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Release\Askilian Launcher WPF.csproj.AssemblyReference.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Release\Askilian Launcher WPF.csproj.SuggestedBindingRedirects.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Release\Askilian_Launcher.Properties.Resources.resources
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Release\Askilian Launcher WPF.csproj.GenerateResource.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\Release\Askilian Launcher WPF.csproj.CoreCompileInputs.cache

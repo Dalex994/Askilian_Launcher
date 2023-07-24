@@ -15,7 +15,7 @@
                VerticalAlignment="Stretch"
                Opacity="50"/>
 
-        <Button Name="PlayButton1"
+        <Button x:Name="PlayButton1"
                 Style="{DynamicResource RoundedButton}"  
                 Width="144"
                 Height="55"
@@ -26,7 +26,7 @@
                 Content="Entrer"
                 Foreground="Beige"
                 FontFamily="/Fonts/#Berry Rotunda"
-                Click="PlayMirum_Click"
+                Click="PlayButton1_Click"
                 Cursor="Hand"
                 FontSize="23"/>
 

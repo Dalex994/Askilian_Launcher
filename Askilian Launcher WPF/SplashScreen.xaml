@@ -30,7 +30,7 @@
                    Style="{StaticResource FontRotunda}"/>
 
 
-        <TextBlock Name="TextButton"
+        <TextBlock x:Name="TextButton"
                    Text="Ouverture du portail..."
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"

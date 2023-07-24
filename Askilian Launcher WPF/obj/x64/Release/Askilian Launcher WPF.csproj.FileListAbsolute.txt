@@ -1,0 +1,34 @@
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\x64\Release\Askilian Launcher.exe.config
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\x64\Release\Askilian Launcher.exe.manifest
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\x64\Release\Askilian Launcher.application
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\x64\Release\Askilian Launcher.exe
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\bin\x64\Release\Askilian Launcher.pdb
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher WPF.csproj.AssemblyReference.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher WPF.csproj.SuggestedBindingRedirects.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Theme\ButtonStyle.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Theme\FontTheme.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MainWindow.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MVVM\View\DiscoveryView.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MVVM\View\HomeView.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MVVM\View\SoonView.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\SplashScreen.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\UserControls\PopupUserControl.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\App.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\GeneratedInternalTypeHelper.g.cs
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher_MarkupCompile.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher_MarkupCompile.lref
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\App.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MainWindow.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MVVM\View\DiscoveryView.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MVVM\View\HomeView.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\MVVM\View\SoonView.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\SplashScreen.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\UserControls\PopupUserControl.baml
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher.g.resources
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian_Launcher.Properties.Resources.resources
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher WPF.csproj.GenerateResource.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher WPF.csproj.CoreCompileInputs.cache
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher.exe.manifest
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher.application
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher.exe
+D:\Programmation\Askilian_Launcher\Askilian Launcher WPF\obj\x64\Release\Askilian Launcher.pdb

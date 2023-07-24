@@ -21,8 +21,6 @@ namespace Askilian_Launcher
     {
         private string remoteFolderUrl;
         private string localFolder;
-        private string[] webFiles;
-        private string[] localFiles;
         private string VersionName;
         private string VersionContent;
         private CancellationTokenSource cts;
@@ -63,7 +61,6 @@ namespace Askilian_Launcher
             cts = new CancellationTokenSource();
             remoteFolderUrl = "https://onedrive.live.com/download?cid=FB971FAC14D737C0&resid=FB971FAC14D737C0%21200&authkey=ALOCmxYUGFVZatQ";
             localFolder = Directory.GetCurrentDirectory();
-            webFiles = null;
             VersionName = "Askilian_Launcher.Version.txt";
             ContentRendered += Window_ContentRendered;
             // MUST TELL THAT THE UPDATE MUST BE COMPLETED BEFORE LOADED
